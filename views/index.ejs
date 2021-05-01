@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Six+Caps&display=swap" rel="stylesheet">
+  <title>application</title>
+  <style type="text/css">
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-size: no-repeat;
+      background-size: cover;
+    }
+
+    h1 {
+      text-align: center;
+      margin: 20px 10px;
+      color: #464444;
+      font-family: 'Six Caps', sans-serif;
+      font-size: 100px;
+      font-weight: 200;
+      letter-spacing: 4px;
+    }
+
+    .ghost-input {
+      display: block;
+      width: 500px;
+      height: 25px;
+      font-family: 'Montserrat', sans-serif;
+      border: 2px solid #DE9D8E;
+      border-radius: 5px;
+      margin-bottom: 10px;
+    }
+
+    .ghost-button {
+      width: 510px;
+      height: 22px;
+      font-size: 14px;
+      margin-top: 1%;
+      border: 2px solid #DE9D8E;
+      border-radius: 5px;
+      text-decoration: none;
+      display: inline-block;
+      background-color: #DE9D8E;
+      text-align: center;
+      color: black;
+    }
+
+    .container {
+      padding: 30px 15px;
+      margin-left: 30%;
+      margin-right: 30%;
+
+    }
+
+    .table {
+      text-align: center;
+      margin-left: 20%;
+      margin-right: 20%;
+      height: 150px;
+      margin-bottom: 200px;
+    }
+
+    .title {
+      text-align: center;
+      margin-left: 20%;
+      margin-right: 20%;
+      height: 50px;
+      margin-bottom: 10px;
+    }
+
+    .box {
+      width: 32%;
+      float: left;
+      text-align: left;
+      line-height: 24px;
+      background-color: rgb(233, 233, 233);
+      margin-right: 10px;
+      border-radius: 7px;
+    }
+
+    .box-title {
+      width: 32%;
+      float: left;
+      text-align: left;
+      line-height: 24px;
+      padding-left: 10px;
+      color: #b96e5e;
+    }
+
+    .form {
+      border: none;
+    }
+
+    ol {
+      font-weight: bolder;
+      color: #b96e5e;
+    }
+
+    ol li span {
+      font-weight: normal;
+      color: rgb(0, 0, 0);
+    }
+  </style>
+
+</head>
+
+<body>
+  <h1>WEB SCRAPER</h1>
+  <div class="container">
+    <fieldset class="form">
+      <form action="/" method="post">
+        <input name="url1" type="text" style="float: left;" class="ghost-input" placeholder="Birinci Url'yi Giriniz"
+          required>
+        <input name="url2" type="text" class="ghost-input" style="float: left;" placeholder="İkinci Url'yi Giriniz"
+          required>
+        <input type="submit" class="ghost-button" value="SCRAPE">
+      </form>
+
+
+
+
+    </fieldset>
+  </div>
+
+  <div class="title">
+
+    <div class="box-title">
+      <h3>1. URL Sonuçları</h3>
+    </div>
+    <div class="box-title">
+      <h3>Benzerlik Oranı</h3>
+    </div>
+    <div class="box-title">
+      <h3>2. URL Sonuçları</h3>
+    </div>
+  </div>
+  </div>
+
+  <div class="table">
+    <% if(sonuc !==null){ %>
+      <div class="box">
+        <ol>
+          <li><span>&#160<%= sonuc.url1Res[0].key %> >> <%= sonuc.url1Res[0].count %></span></li>
+          <li><span>&#160<%= sonuc.url1Res[1].key %> >> <%= sonuc.url1Res[1].count %></span></li>
+          <li><span>&#160<%= sonuc.url1Res[2].key %> >> <%= sonuc.url1Res[2].count %></span></li>
+          <li><span>&#160<%= sonuc.url1Res[3].key %> >> <%= sonuc.url1Res[3].count %></span></li>
+          <li><span>&#160<%= sonuc.url1Res[4].key %> >> <%= sonuc.url1Res[4].count %></span></li>
+        </ol>
+      </div>
+      <div class="box">
+        <ol>
+          <li><span>
+              <%= sonuc.similarityRatio.skor1 %>
+            </span></li>
+          <li><span>
+              <%= sonuc.similarityRatio.skor2 %>
+            </span></li>
+        </ol>
+      </div>
+      <div class="box">
+        <ol>
+          <li><span>&nbsp;<%= sonuc.url2Res[0].key %> >> <%= sonuc.url2Res[0].count %></span></li>
+          <li><span>&nbsp;<%= sonuc.url2Res[1].key %> >> <%= sonuc.url2Res[1].count %></span></li>
+          <li><span>&nbsp;<%= sonuc.url2Res[2].key %> >> <%= sonuc.url2Res[2].count %></span></li>
+          <li><span>&nbsp;<%= sonuc.url2Res[3].key %> >> <%= sonuc.url2Res[3].count %></span></li>
+          <li><span>&nbsp;<%= sonuc.url2Res[4].key %> >> <%= sonuc.url2Res[4].count %></span></li>
+        </ol>
+      </div>
+
+      <% } %>
+
+  </div>
+  </div>
+</body>
+
+</html>
